@@ -23,6 +23,9 @@ DATABASES = {
     }
 }
 
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS':False,
+}
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'zh_CN'
 SITE_ID = 1
@@ -41,8 +44,8 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'sass --scss {infile} {outfile}'),
 )
 STATIC_URL = '/static/'
-LOGIN_URL = '/accounts/login'
-LOGIN_REDIRECT_URL = '/task'
+LOGIN_URL = '/account/login'
+LOGIN_REDIRECT_URL = '/account/index'
 INTERNAL_IPS = ('127.0.0.1')
 
 STATICFILES_DIRS = (
@@ -91,7 +94,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.admin',
+    'django.contrib.admin',
 
     # external
     'south',

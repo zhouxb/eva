@@ -4,15 +4,22 @@
   %head
     %title
     %meta{'name':'description', 'content':'text/html', 'charset':'utf-8'}
+    %link{'rel':'stylesheet', 'href':'={ STATIC_URL }css/base.css'}
     %link{'rel':'stylesheet', 'href':'={ STATIC_URL }bootstrap/css/bootstrap.css'}
+    %script{'src':'={ STATIC_URL }js/jquery-1.7.2.min.js'}
     %script{'src':'={ STATIC_URL }bootstrap/js/bootstrap.min.js'}
-    %script{'src':'={ STATIC_URL }js/jquery-1.7.1.min.js'}
 
   %body{'data-spy':'scroll', 'data-target':'.subnav', 'data-offset':'50'}
 
       - block nav
         - include 'nav.haml'
-      - block content
+      .container-fluid
+        .row-fluid
+          - block content
+            .span3
+              - block sidebar
+            .span9
+              - block main
       - block footer
         -#- include 'footer.haml'
 
