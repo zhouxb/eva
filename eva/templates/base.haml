@@ -1,3 +1,5 @@
+- load compress
+
 <!DOCTYPE html>
 
 %html
@@ -8,15 +10,23 @@
     %link{'rel':'stylesheet', 'href':'={ STATIC_URL }bootstrap/css/bootstrap.css'}
     %script{'src':'={ STATIC_URL }js/jquery-1.7.2.min.js'}
     %script{'src':'={ STATIC_URL }bootstrap/js/bootstrap.min.js'}
+    %script{'src':'={ STATIC_URL }bootstrap/js/bootbox.min.js'}
+
+    -#project
+    - compress js
+      %script{'type':'text/coffeescript', 'src':'={ STATIC_URL }js/cs/sidebar.coffee'}
 
   %body{'data-spy':'scroll', 'data-target':'.subnav', 'data-offset':'50'}
 
+      - block resource
+
       - block nav
         - include 'nav.haml'
+
       .container-fluid
         .row-fluid
           - block content
-            .span3
+            .span3.mini-layout-sidebar
               - block sidebar
             .span9
               - block main

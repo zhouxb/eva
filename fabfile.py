@@ -6,3 +6,6 @@ def locale():
 def build_locale():
     local('django-admin.py compilemessages')
 
+def server():
+    local('./manage.py runserver_plus')
+

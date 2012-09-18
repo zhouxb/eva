@@ -12,6 +12,8 @@ urlpatterns = patterns('',
 
     # project
     url(r'account/', include('eva.apps.account.urls')),
+    url(r'tasking/', include('eva.apps.tasking.urls')),
+    url(r'loggit/', include('eva.apps.loggit.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

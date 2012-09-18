@@ -1,7 +1,7 @@
 - load url from future
 - load i18n
 
-.navbar.navbar-inverse{'style':"position: static;"}
+.navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
     .container
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".subnav-collapse">
@@ -13,9 +13,16 @@
         Title
       .nav-collapse.subnav-collapse
         %ul.nav
+          -#apps
+          -#tasking
           %li.active
-            %a{'href':"#"}
-              Home
+            %a{'href':"{% url 'tasking_task_index' %}"}
+              {% trans 'tasking' %}
+
+          -#loggit
+          %li.active
+            %a{'href':"{% url 'loggit_newdomain_index' %}"}
+              {% trans 'loggit' %}
 
         -#account
         %ul.nav.pull-right

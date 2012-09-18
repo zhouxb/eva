@@ -26,7 +26,9 @@ DATABASES = {
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS':False,
 }
-TIME_ZONE = 'America/Chicago'
+
+# Datetime
+TIME_ZONE = 'Asia/Shanghai'
 LANGUAGE_CODE = 'zh_CN'
 SITE_ID = 1
 USE_I18N = True
@@ -45,12 +47,13 @@ COMPRESS_PRECOMPILERS = (
 )
 STATIC_URL = '/static/'
 LOGIN_URL = '/account/login'
-LOGIN_REDIRECT_URL = '/account/index'
+LOGIN_REDIRECT_URL = '/tasking/task/index'
 INTERNAL_IPS = ('127.0.0.1')
 
 STATICFILES_DIRS = (
     os.path.join(CURRENT_PATH, 'static'),
 )
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -101,13 +104,22 @@ INSTALLED_APPS = (
     'django_extensions',
     'debug_toolbar',
     'compressor',
-    'tagging',
+    'taggit',
     'django_tables2',
     #'bootstrap',
 
     # project
     'eva.apps.account',
+    'eva.apps.tasking',
+    'eva.apps.loggit',
 )
+
+CACHES = {
+    'default':{
+        'BACKEND':'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION':'/tmp/django_cache',
+        }
+    }
 
 LOGGING = {
     'version': 1,
